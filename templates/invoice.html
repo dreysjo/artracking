@@ -21,15 +21,17 @@
             <th>Tanggal</th>
             <th>ID Pelanggan</th>
             <th>Total</th>
-            <th>Batalkan</th>
+            <th>Aksi</th>
         </tr>
+        {% for data in invoices%}
         <tr>
-            <td></td> 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{data[0]}}</td> 
+            <td>{{data[1]}}</td> 
+            <td>{{data[2]}}</td> 
+            <td>{{data[3]}}</td> 
+            <td><button>CANCEL WOY</button></td> 
         </tr>
+        {%endfor%}
     </table>
 </body>
 

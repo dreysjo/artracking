@@ -1,5 +1,5 @@
 import pymysql
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 conn = pymysql.connect(
     host='localhost',
     user='root',
@@ -38,21 +38,4 @@ def check_position(id_usr):
     
     # print(data)
 
-# check_position(3)
-@app.route('/login')
-def login(user_name,pswd):
-    cur = conn.cursor()
-    id= login_check(user_name,pswd)
-    if id != False:
-        position = check_position(id)
-        if position == 'manager':
-            return render_template('main_manager.html')
-        elif position == 'admin_sales':
-            return render_template('main_menu_as.html')
-        elif position == 'admin_finance':
-            return render_template('main_menu_af.html')
-    else:
-        #kyknya nanti masukin java yg ngubah text jdi 'failed to login'
-        return False
-
-login('udey','suga')
+# app.run()
