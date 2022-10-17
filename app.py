@@ -3,7 +3,7 @@ from database import *
 
 
 app = Flask(__name__)
-app.secret_key = 'terserah aku'
+app.secret_key = 'fart'
 @app.route('/',methods=['GET','POST'])
 def login():
     apa_gitu = ['temen','nowel','batu','nole','leyon']
@@ -51,19 +51,36 @@ def pelunasan_invoice():
 def piutang_perusahaan():
     return render_template("piutang_perusahaan.html")
 
-@app.route('/sales_invoice_form')
-def sales_invoice_form():
-    return render_template("sales_invoice_form.html")
+# @app.route('/sales_invoice_form')
+# def sales_invoice_form():
+#     return render_template("sales_invoice_form.html")
 
-@app.route('/invoice')
+@app.route('/sales_invoice_form', methods=['POST', 'GET'])
 def invoice():
-    #data dummy
-    invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
-    return render_template("invoice.html", invoices=invoices)
+    # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
+    if request.method == "POST":
+        date = request.form['date']
+        customer_name = request.form['customer_name']
+        total = request.form['total']
+        print(date, customer_name, total)
+
+        if not date:
+            flash('Date is required!')
+        elif not customer_name:
+            flash('Customer name is required!')
+        elif not total:
+            flash('Total is required!')
+        else:
+            insert_transaction(date, customer_name, total)
+            # return redirect(url_for('index'))
+
+    return render_template("sales_invoice_form.html")
 
 @app.route('/admin')
 def admin():
     return render_template("admin.html")
-    
-app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
 
+
+if __name__ == "__main__":
+    # app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
+    app.run()

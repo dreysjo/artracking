@@ -38,7 +38,11 @@ def check_position(id_usr):
     
     # print(data)
 
-def insert_transaction():
+def insert_transaction(date, customer_name, total):
+    cur = conn.cursor()
+    cur.execute(f"INSERT INTO invoice (customer_name, date_invoice, total, status) VALUES (%s, %s, %s, 0)", (customer_name, date, total,))
+    conn.commit()
+    cur.close()
 
 
 # app.run()
