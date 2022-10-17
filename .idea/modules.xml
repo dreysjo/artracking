@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../teori automata/Week7_UTSProject/.idea/Week7_UTSProject.iml" filepath="$PROJECT_DIR$/../../../teori automata/Week7_UTSProject/.idea/Week7_UTSProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/artracking.iml" filepath="$PROJECT_DIR$/.idea/artracking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../flaskthings/.idea/flaskthings.iml" filepath="$PROJECT_DIR$/../../flaskthings/.idea/flaskthings.iml" />
+    </modules>
+  </component>
+</project>

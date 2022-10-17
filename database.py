@@ -38,4 +38,7 @@ def check_position(id_usr):
     
     # print(data)
 
+def insert_transaction():
+
+
 # app.run()
