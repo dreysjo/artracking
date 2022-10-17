@@ -53,4 +53,5 @@ def insert_transaction(date, customer_name, total):
     conn.commit()
     cur.close()
 
+#UNTUK ADMIN FINANCE
 # app.run()
