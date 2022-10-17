@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Invoice History </title>
+</head>
+
+<body>
+
+    <h1>Invoice History</h1>
+
+    <label for="invoiceid">ID</label> <input type="text"> <button>Search</button>
+    <p> sort by </p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tanggal</th>
+            <th>ID Pelanggan</th>
+            <th>Total</th>
+        </tr>
+        {% for data in invoices%}
+        <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+
+</html>
