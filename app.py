@@ -57,8 +57,6 @@ def sales_invoice_form():
 
 @app.route('/invoice')
 def invoice():
-    #data dummy
-    # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
     return render_template("invoice.html")
 
 @app.route('/admin')
