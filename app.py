@@ -6,7 +6,6 @@ app = Flask(__name__)
 app.secret_key = 'fart'
 @app.route('/',methods=['GET','POST'])
 def login():
-    apa_gitu = ['temen','nowel','batu','nole','leyon']
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
@@ -25,7 +24,7 @@ def login():
             return render_template('log_in_page.html')
             # return redirect(render_template('log_in_page.html'))
     else:
-        return render_template('log_in_page.html',apa_gitu=apa_gitu)
+        return render_template('log_in_page.html')
 
 @app.route('/main_manager')
 def main_manager():
@@ -58,7 +57,6 @@ def piutang_perusahaan():
 @app.route('/sales_invoice_form', methods=['POST', 'GET'])
 def invoice():
     #data dummy
-    # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
     return render_template("invoice.html")
 
 @app.route('/admin')
@@ -71,5 +69,5 @@ def history():
     return render_template('invoice_history.html',invoices=invoices)
 
 if __name__ == "__main__":
-    # app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
+    app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
     app.run()
