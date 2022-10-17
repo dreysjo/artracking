@@ -44,10 +44,8 @@ def get_invoice_data():
     for i in range(len(row)):
        data = list(row[i]) 
        res.append(data)
+    # print(res)
     return res
 
-def insert_transaction():
-    pass
 
 # app.run()
-# get_invoice_data()
