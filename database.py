@@ -35,7 +35,14 @@ def check_position(id_usr):
     conn.commit()
     # print(position[0][0])
     return position[0][0]
-    
-    # print(data)
 
-# app.run()
+def get_invoice_data():
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM invoice')
+    row = cur.fetchall()
+    return row
+    # print(yaa[0][2])
+            
+
+    # print(data)
+get_invoice_data()

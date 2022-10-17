@@ -3,10 +3,10 @@ from database import *
 
 
 app = Flask(__name__)
-app.secret_key = 'terserah aku'
+app.secret_key = 'fart'
 @app.route('/',methods=['GET','POST'])
 def login():
-    apa_gitu = ['temen','nowel','batu','nole','leyon']
+    # apa_gitu = ['temen','nowel','batu','nole','leyon']
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
@@ -14,18 +14,18 @@ def login():
         if id != False:
             position = check_position(id)
             print(f"position:{position}")
-            if position == 'manager':
+            if position== 'manager':
                 return redirect(url_for('main_manager'))
-            elif position == 'admin_sales':
+            elif position== 'admin_sales':
                 return redirect(url_for('main_menu_as'))
-            elif position == 'admin_finance':
+            elif position== 'admin_finance':
                 return redirect(url_for('main_menu_af'))
         else:
             flash("wrong username or password", category= 'error')
             return render_template('log_in_page.html')
             # return redirect(render_template('log_in_page.html'))
     else:
-        return render_template('log_in_page.html',apa_gitu=apa_gitu)
+        return render_template('log_in_page.html')
 
 @app.route('/main_manager')
 def main_manager():
@@ -58,12 +58,17 @@ def sales_invoice_form():
 @app.route('/invoice')
 def invoice():
     #data dummy
-    invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
-    return render_template("invoice.html", invoices=invoices)
+    # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
+    return render_template("invoice.html")
 
 @app.route('/admin')
 def admin():
     return render_template("admin.html")
+
+# @app.history('/history')
+# def history():
+#     get_invoice_data()
+#     return render_template('history.html')
     
 app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
 
