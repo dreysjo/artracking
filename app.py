@@ -65,10 +65,10 @@ def invoice():
 def admin():
     return render_template("admin.html")
 
-# @app.history('/history')
-# def history():
-#     get_invoice_data()
-#     return render_template('history.html')
+@app.route('/history')
+def history():
+    invoices = get_invoice_data()
+    return render_template('invoice_history.html',invoices=invoices)
     
 app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
 

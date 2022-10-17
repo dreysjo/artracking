@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,7 @@
 
     <h1>Invoice History</h1>
 
-    <label for="invoiceid">ID</label> <input type="text"> <button>Search</button>
+    <label name="invoiceid">ID</label> <input type="text"> <button>Search</button>
     <p> sort by </p>
     <table>
         <tr>
@@ -32,39 +31,4 @@
 
 </body>
 
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title> Invoice History </title>
-</head>
-
-<body>
-
-    <h1>Invoice History</h1>
-
-    <label for="invoiceid">ID</label> <input type="text"> <button>Search</button>
-    <p> sort by </p>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Tanggal</th>
-            <th>ID Pelanggan</th>
-            <th>Total</th>
-        </tr>
-        {% for data in invoices%}
-        <tr>
-            <td>{{data[0]}}</td>
-            <td>{{data[1]}}</td>
-            <td>{{data[2]}}</td>
-            <td>{{data[3]}}</td>
-        </tr>
-        {%endfor%}
-    </table>
-
-</body>
-
->>>>>>> d4f0b464d8468d1a05b2d4fc67ef0e4e73e80d81
 </html>

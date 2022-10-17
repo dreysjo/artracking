@@ -37,9 +37,18 @@ def check_position(id_usr):
     return position[0][0]
 
 def get_invoice_data():
-    pass
+    cur= conn.cursor()
+    cur.execute('SELECT ID_trans,ID_customer,date,total FROM invoice')
+    row = cur.fetchall()
+    res = []
+    for i in range(len(row)):
+       data = list(row[i]) 
+       res.append(data)
+    # print(res)
+    return res
 
 def insert_transaction():
     pass
 
 # app.run()
+# get_invoice_data()
