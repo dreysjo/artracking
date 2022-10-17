@@ -6,15 +6,15 @@
 </head>
 <body>
   <h1>Sales Invoice Form</h1>
-  <form action="#">
+  <form action="post">
     <label for="date">Date</label>
-    <input type="date"> <br> <br>
+    <input type="date" value="{{request.form['date']}}"> <br> <br>
     <label for="id customer">ID Customer</label>
-    <input type="text" placeholder="ID Customer"> <br> <br>
+    <input type="text" placeholder="ID Customer" value="{{request.form['ID_customer']}}"> <br> <br>
     <label for="total">Total</label>
-    <input type="number">  <br> <br>
+    <input type="number" placeholder="Total" value="{{request.form['total']}}">  <br> <br>
 
-    <button>Submit</button>
+    <button type="submit" onclick="window.location.href='invoice.html' ">Submit</button>
   </form>
 </body>
 </html>
