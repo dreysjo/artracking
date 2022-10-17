@@ -37,12 +37,9 @@ def check_position(id_usr):
     return position[0][0]
 
 def get_invoice_data():
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM invoice')
-    row = cur.fetchall()
-    return row
-    # print(yaa[0][2])
-            
+    pass
 
-    # print(data)
-get_invoice_data()
+def insert_transaction():
+    pass
+
+# app.run()
