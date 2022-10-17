@@ -59,9 +59,9 @@ def piutang_perusahaan():
 def invoice():
     # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
     if request.method == "POST":
-        date = request.form['date']
-        customer_name = request.form['customer_name']
-        total = request.form['total']
+        date = request.form.get("date")
+        customer_name = request.form.get("namecustomer")
+        total = request.form.get("total")
         print(date, customer_name, total)
 
         if not date:
@@ -72,7 +72,7 @@ def invoice():
             flash('Total is required!')
         else:
             insert_transaction(date, customer_name, total)
-            # return redirect(url_for('index'))
+            return redirect(url_for('invoice'))
 
     return render_template("sales_invoice_form.html")
 
