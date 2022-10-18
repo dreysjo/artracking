@@ -17,7 +17,7 @@ def login_check(usr_name,passwd):
     sqlry = f"""
     SELECT ID_user 
     FROM login 
-    WHERE username = %s and password = %s """
+    WHERE username = (%s) and password = (%s) """
     data = cur.execute(sqlry,(usr_name, passwd,))
     row = cur.fetchall()
     conn.commit()
@@ -43,9 +43,10 @@ def get_invoice_data():
        res.append(data)
     return res
 
-def insert_transaction(date, customer_name, total):
+def insert_transaction(date, customer_id, total):
     cur = conn.cursor()
-    cur.execute(f"INSERT INTO invoice (ID_customer, date, total, status) VALUES (%s, %s, %s, 'active')", (customer_name, date, total,))
+    cur.execute(f"INSERT INTO invoice (ID_customer, date, total, status) VALUES (%s, %s, %s, 'active')", (customer_id, date, total,))
+    cur.execute(f"UPDATE customer SET total_piutang = total_piutang + (%s) WHERE ID_customer = (%s)", (total, customer_id,))
     conn.commit()
     cur.close()
 
