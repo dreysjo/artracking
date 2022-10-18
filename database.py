@@ -17,7 +17,7 @@ def login_check(usr_name,passwd):
     sqlry = f"""
     SELECT ID_user 
     FROM login 
-    WHERE username = %s and password = %s """
+    WHERE username = (%s) and password = (%s) """
     data = cur.execute(sqlry,(usr_name, passwd,))
     row = cur.fetchall()
     conn.commit()
