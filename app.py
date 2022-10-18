@@ -59,18 +59,18 @@ def invoice():
     # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
     if request.method == "POST":
         date = request.form.get("date")
-        customer_name = request.form.get("namecustomer")
+        id_customer = request.form.get("idcustomer")
         total = request.form.get("total")
-        print(date, customer_name, total)
+        print(date, id_customer, total)
 
         if not date:
             flash('Date is required!')
-        elif not customer_name:
-            flash('Customer name is required!')
+        elif not id_customer:
+            flash('Customer ID is required!')
         elif not total:
             flash('Total is required!')
         else:
-            insert_transaction(date, customer_name, total)
+            insert_transaction(date, id_customer, total)
             # return redirect(url_for('index'))
 
     return render_template("sales_invoice_form.html")

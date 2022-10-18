@@ -35,7 +35,7 @@ def check_position(id_usr):
 #UNTUK ADMIN SALES
 def get_invoice_data():
     cur= conn.cursor()
-    cur.execute('SELECT ID_trans,customer_name,date_invoice,total, status FROM invoice')
+    cur.execute('SELECT ID_customer, date ,total, status FROM invoice')
     row = cur.fetchall()
     res = []
     for i in range(len(row)):
@@ -45,7 +45,7 @@ def get_invoice_data():
 
 def insert_transaction(date, customer_name, total):
     cur = conn.cursor()
-    cur.execute(f"INSERT INTO invoice (customer_name, date_invoice, total, status) VALUES (%s, %s, %s, 0)", (customer_name, date, total,))
+    cur.execute(f"INSERT INTO invoice (ID_customer, date, total, status) VALUES (%s, %s, %s, 'active')", (customer_name, date, total,))
     conn.commit()
     cur.close()
 

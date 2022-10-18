@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 11:36 AM
+-- Generation Time: Oct 18, 2022 at 08:38 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `invoice` (
   `ID_invoice` int(11) NOT NULL,
-  `ID_trans` int(11) NOT NULL,
   `ID_customer` int(225) NOT NULL,
   `date` varchar(300) NOT NULL,
   `total` varchar(300) NOT NULL,
