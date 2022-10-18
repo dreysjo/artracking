@@ -22,20 +22,17 @@ def login_check(usr_name,passwd):
     row = cur.fetchall()
     conn.commit()
     if data != 0:
-        # print('tru')
         return row[0][0]
     else:
-        # print('no')
         return False
-# login_check('udey','suga')
+
 def check_position(id_usr):
     cur = conn.cursor()
     cur.execute(f"SELECT position FROM login WHERE ID_user= (%s) ",(id_usr,))
     position = cur.fetchall()
     conn.commit()
-    # print(position[0][0])
     return position[0][0]
-
+#UNTUK ADMIN SALES
 def get_invoice_data():
     cur= conn.cursor()
     cur.execute('SELECT ID_trans,ID_customer,date,total FROM invoice')
@@ -44,7 +41,6 @@ def get_invoice_data():
     for i in range(len(row)):
        data = list(row[i]) 
        res.append(data)
-    # print(res)
     return res
 
 def insert_transaction(date, customer_name, total):
@@ -54,4 +50,32 @@ def insert_transaction(date, customer_name, total):
     cur.close()
 
 #UNTUK ADMIN FINANCE
-# app.run()
+
+def get_invoice_id(id):
+    cur = conn.cursor()
+    cur.execute(f"SELECT ID_invoice FROM invoice WHERE ID_invoice = (%s)",(id,))
+    the_id = cur.fetchall()
+    if len(the_id) != 0:
+        return the_id[0][0]
+    else:
+        return False
+
+def check_status_invoice(id):
+    cur = conn.cursor()
+    check_id = get_invoice_id(id)
+    if check_id != False:
+        cur.execute(f"SELECT status FROM invoice WHERE ID_invoice = (%s)",(check_id))
+        stat = cur.fetchall()
+        if stat[0][0] == 'active':
+            return 'active'
+        elif stat[0][0] == 'paid':
+            return 'paid'
+    else:
+        return False
+def get_info_invoice(id):
+    cur = conn.cursor()
+    check_status = check_status_invoice(id)
+    if check_status != False and check_status!= 'paid':
+        cur.execute(f'SELECT ')
+        pass
+app.run()
