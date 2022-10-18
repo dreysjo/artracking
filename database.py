@@ -78,4 +78,4 @@ def get_info_invoice(id):
     if check_status != False and check_status!= 'paid':
         cur.execute(f'SELECT ')
         pass
-app.run()
+# app.run()

@@ -84,6 +84,6 @@ def history():
     invoices = get_invoice_data()
     return render_template('invoice_history.html',invoices=invoices)
 
-# if __name__ == "__main__":
-    # app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
-    # app.run()
+if __name__ == "__main__":
+    app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
+    app.run()
