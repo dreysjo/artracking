@@ -35,7 +35,7 @@ def check_position(id_usr):
 #UNTUK ADMIN SALES
 def get_invoice_data():
     cur= conn.cursor()
-    cur.execute('SELECT ID_trans,ID_customer,date,total FROM invoice')
+    cur.execute('SELECT ID_trans,customer_name,date_invoice,total, status FROM invoice')
     row = cur.fetchall()
     res = []
     for i in range(len(row)):
