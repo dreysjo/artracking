@@ -59,10 +59,9 @@ def pelunasan_invoice():
     invoices = get_invoice_data()
 
     if request.method == "POST":
-        data = request.form
-
+        data = request.form.getlsit('checkbox')
+        print("data", data)
         id_invoice = [int(i) for i in data.keys()]
-        print(id_invoice)
 
         for id in id_invoice:
             pay_invoice(id)

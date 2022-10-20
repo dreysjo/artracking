@@ -10,6 +10,8 @@
 </header>
 <body>
     <h1>Invoice History</h1>
+    <form method="post">
+
     <table>
         <tr>
             <th>ID</th>
@@ -24,12 +26,11 @@
             <td>{{data[1]}}</td>
             <td>{{data[2]}}</td>
             <td>{{data[3]}}</td>
-            <form method="post">
-                <td><input type="checkbox" name='Checkbox' value=""{{ data[0] }}" ></td>
-            </form>
+                <td><input type="checkbox" name='{{ data[0] }}' value="{{ data[0] }}"" ></td>
         </tr>
         {%endfor%}
     </table>
     <input type="submit" name="submit button">
+    </form>
 </body>
 </html>
