@@ -1,4 +1,4 @@
-# from crypt import methods
+
 from flask import Flask, render_template,request,redirect,url_for,session,flash
 from database import *
 
@@ -39,10 +39,40 @@ def main_menu_af():
 def main_menu_as():
     return render_template("main_menu_as.html")
 
-@app.route('/pelanggan')
+@app.route('/pelanggan', methods=['POST', 'GET'])
 def pelanggan():
     customers = show_customer()
-    return render_template("pelanggan.html", customers=customers)
+    if request.method =="POST":
+        if 'edit' in request.form:
+            id= request.form['edit']
+            datas = get_customer(id)
+            return render_template('edit_pelanggan.html',datas=datas)
+
+        elif 'delete' in request.form:
+            id= request.form['delete']
+            delete_customer(id)
+    else:
+        return render_template('pelanggan.html',customers=customers)
+
+@app.route('/edit_pelanggan',  methods=['POST', 'GET'])
+def edit_pelanggan():
+    if request.method == 'POST':
+        name = request.form['customer_name']
+        address = request.form['address']
+        phone_numb = request.form['phone_number']
+        status = request.form['status']
+        id = request.form['change']
+        print(id)
+        return
+    else:
+        pass
+
+    # return render_template('edit_pelanggan.html')
+
+# @app.route('/edit_pelanggan', methods=['POST','GET'])
+# def edit_pelanggan():
+#     if request.method == 'GET':
+#         return request.args['id']
 
 @app.route('/new_customer', methods=['POST','GET'])
 def new_customer_form():

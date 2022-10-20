@@ -23,17 +23,20 @@
             <th>Nama Pelanggan</th>
             <th>Alamat</th>
             <th>No.telp</th>
+            <th>status</th>
             <th>D/E</th>
         </tr>
-        <form>
+        <form action="" method="POST">
         <tr>
             {%for customer in customers%}
             <td>{{customer[0]}}</td> 
             <td>{{customer[1]}}</td>
             <td>{{customer[2]}}</td>
             <td>{{customer[3]}}</td>
-            <td><button name="delete">delete</button>
-                <button name='edit'>edit</button></td>
+            <td>{{customer[5]}}</td>
+            <td><button type="submit" name="delete" value="{{customer[0]}}">delete</button>
+                <!-- <a href="/edit_pelanggan?id={{customer[0]}}">edit</a> </td> -->
+                <button type="submit" name='edit' value="{{customer[0]}}">edit</button></td>
         </tr>
         {%endfor%}
     </form>
