@@ -125,25 +125,6 @@ def insert_new_customer(name,adress,phone_numb):
     conn.commit()
     return insert
 
-<<<<<<< HEAD
-def edit_customer(id,name,address,number,status):
-    cur = conn.cursor()
-    edit = cur.execute(f'UPDATE customer SET cust_name =(%s), address=(%s), number=(%s),status=(%s) WHERE ID_customer =(%s)',(name,address,number,status,id,))
-    print(edit)
-    conn.commit()
-    print(edit)
-    return edit
-
-def delete_customer(id):
-    cur = conn.cursor()
-    delete = cur.execute(f"DELETE from customer WHERE ID_customer = (%s)",(id))
-    conn.commit()
-    return delete
-
-def show_all_invoices():
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM invoice ORDER BY date ASC')
-=======
 def delete_customer(id):
     cur = conn.cursor()
     cur.execute('DELETE FROM customer WHERE ID_customer = (%s)', (id,))
@@ -171,7 +152,6 @@ def disable_customer(id):
 def show_all_invoices():
     cur = conn.cursor()
     cur.execute('SELECT * FROM invoice')
->>>>>>> 84c7456063379d64c948665dea58c7669e078fdb
     invoices = cur.fetchall()
     res = []
     for invoice in range(len(invoices)):

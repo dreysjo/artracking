@@ -19,25 +19,8 @@
                     class="logo"
             />
     <table>
-        <tr>
-            <th class="txt-0108">ID</th>
-            <th class="txt-0108">Nama Pelanggan</th>
-            <th class="txt-0108">Alamat</th>
-            <th class="txt-0108">No.telp</th>
-            <th class="txt-0108">status</th>
-            <th class="txt-0108">D/E</th>
-        </tr>
         <form action="" method="POST">
         <tr>
-            {%for customer in customers%}
-            <td>{{customer[0]}}</td> 
-            <td>{{customer[1]}}</td>
-            <td>{{customer[2]}}</td>
-            <td>{{customer[3]}}</td>
-            <td>{{customer[5]}}</td>
-            <td><button type="submit" name="delete" value="{{customer[0]}}">delete</button>
-                <!-- <a href="/edit_pelanggan?id={{customer[0]}}">edit</a> </td> -->
-                <button type="submit" name='edit' value="{{customer[0]}}">edit</button></td>
             <th class="txt-0108">ID</th>
             <th class="txt-0108">Nama Pelanggan</th>
             <th class="txt-0108">Alamat</th>
