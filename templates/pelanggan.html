@@ -14,7 +14,9 @@
     <h1>Pelanggan</h1>
 </header>
 <body>
+    
     <input type="text" placeholder="search for customers"><button>search</button>
+    <a href="/new_customer">Create New Customer</a>
     <table>
         <tr>
             <th>ID</th>
@@ -23,13 +25,19 @@
             <th>No.telp</th>
             <th>D/E</th>
         </tr>
+        <form>
         <tr>
-            <th></th> 
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            {%for customer in customers%}
+            <td>{{customer[0]}}</td> 
+            <td>{{customer[1]}}</td>
+            <td>{{customer[2]}}</td>
+            <td>{{customer[3]}}</td>
+            <td><button name="delete">delete</button>
+                <button name='edit'>edit</button></td>
         </tr>
+        {%endfor%}
+    </form>
     </table>
+
 </body>
 </html>
