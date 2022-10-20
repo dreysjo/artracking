@@ -4,29 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title> Piutang Perusahaan </title>
-    <style>
-        th,td{
-            border: 1px solid black ;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/piutang_perusahaan_css.css">
 </head>
 
 <body>
-    <h1>Piutang Perusahaan</h1>
-
-    <label for="piutangid">ID</label> <input type="text"> <button>Search</button>
-    <p> sort by </p>
+<div class="admin flex-col-hstart-vstart clip-contents">
+    <div class="group-544">
+        <img
+                src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/wdpwrrm7o28-6%3A517?alt=media&token=111af59a-473c-476d-8498-d61ecbce6f52"
+                alt="Not Found"
+                class="logo"
+        />
     <table>
         <tr>
-            <th>ID</th>
-            <th>Tanggal</th>
-            <th>Total</th>
+            <th class="txt-422">ID</th>
+            <th class="txt-422">Tanggal</th>
+            <th class="txt-422">Total</th>
         </tr>
         <tr>
             {%for invoice in invoices%}
-            <td>{{invoice[0]}}</td> 
-            <td>{{invoice[1]}}</td> 
-            <td>{{invoice[2]}}</td> 
+            <td class="txt-422">{{invoice[0]}}</td>
+            <td class="txt-422">{{invoice[1]}}</td>
+            <td class="txt-422">{{invoice[2]}}</td>
         </tr>
             {%endfor%}
     </table>
