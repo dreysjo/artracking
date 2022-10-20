@@ -39,11 +39,21 @@ def check_position(id_usr):
 #UNTUK ADMIN SALES
 def get_invoice_data():
     cur= conn.cursor()
-    cur.execute('SELECT ID_customer, date ,total, status FROM invoice')
+    cur.execute('SELECT ID_invoice, ID_customer, date ,total FROM invoice')
     row = cur.fetchall()
     res = []
     for i in range(len(row)):
-       data = list(row[i]) 
+       data = list(row[i])
+       res.append(data)
+    return res
+
+def get_invoice_data_paid():
+    cur= conn.cursor()
+    cur.execute('SELECT ID_invoice, ID_customer, date ,total FROM invoice WHERE status = "active" ')
+    row = cur.fetchall()
+    res = []
+    for i in range(len(row)):
+       data = list(row[i])
        res.append(data)
     return res
 
@@ -104,6 +114,7 @@ def insert_new_customer(name,adress,phone_numb):
     conn.commit()
     return insert
 
+<<<<<<< HEAD
 def show_all_invoices():
     cur = conn.cursor()
     cur.execute('SELECT * FROM invoice')
@@ -113,5 +124,15 @@ def show_all_invoices():
         data = list(invoices[invoice])
         res.append(data)
     return res
+=======
+def pay_invoice(id):
+    cur = conn.cursor()
+    cur.execute("UPDATE invoice SET status = 'paid' WHERE ID_invoice = (%s)", (id,))
+    conn.commit()
+    cur.close()
+
+app.run()
+
+>>>>>>> fbb437e3ed1c7b4cde433a91b7f869fe61adae64
 # show_customer()
 # app.run()
