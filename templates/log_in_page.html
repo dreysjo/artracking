@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In Page</title>
+    <link rel="stylesheet" href="../static/css/log_in_css.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="like_button.js"></script>
 </head>
 <body>
-    <h1>Log In</h1>
+<div class="login flex-col-hstart-vstart clip-contents">
+    <div class="frame-2 flex-col-hstart-vstart">
+        <div class="rectangle-1">
+    </div>
     <form action="" method="POST">
-        <input type="text" name="username" placeholder="username"> <br> <br>
-        <input type="password" name="password" placeholder="password"> <br> <br>
+        <p class="txt-265">Welcome Back!</p>
+        <div class="line-1">
+        <p class="txt-396">Username</p>
+        <input type="text" name="username" placeholder="username" class="rectangle-2">
+        <p class="txt-281">Password</p>
+        <input type="password" name="password" placeholder="password" class="rectangle-3">
         {%for category, message in get_flashed_messages(with_categories=True)%}
-            <div class={{category}}>{{message}}</div>
+        <div class={{category}}>{{message}}</div>
         {%endfor%}
-        <button>Sign In</button>
+        <div class="group-392">
+        <button class="txt-430">Sign In</button>
+        </div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/poegmlcucms-1%3A179?alt=media&token=d7248cde-edf8-43d9-a709-f9bd40494fcc" alt="Not Found" class="logo">
     </form>
-    <!-- {% for name in apa_gitu %}
-    <p>{{name}}</p>
-    {%endfor%} -->
+</div>
 </body>
 </html>
