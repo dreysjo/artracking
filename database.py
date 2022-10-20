@@ -104,5 +104,14 @@ def insert_new_customer(name,adress,phone_numb):
     conn.commit()
     return insert
 
+def show_all_invoices():
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM invoice')
+    invoices = cur.fetchall()
+    res = []
+    for invoice in range(len(invoices)):
+        data = list(invoices[invoice])
+        res.append(data)
+    return res
 # show_customer()
 # app.run()
