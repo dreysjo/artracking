@@ -148,5 +148,15 @@ def cancel_invoice(id):
     conn.commit()
     cur.close()
 
+def get_admin():
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM login')
+    row = cur.fetchall()
+    res = []
+    for i in range(len(row)):
+        data = list(row[i])
+        res.append(data)
+    return res
+
 # show_customer()
 # app.run()

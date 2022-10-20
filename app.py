@@ -98,7 +98,8 @@ def invoice():
 
 @app.route('/admin')
 def admin():
-    return render_template("admin.html")
+    admins = get_admin()
+    return render_template("admin.html", admins = admins)
 
 @app.route('/history')
 def history():
