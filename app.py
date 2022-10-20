@@ -54,10 +54,19 @@ def new_customer_form():
         return redirect(url_for('pelanggan'))
     else:
         return render_template('form_create_pelanggan.html')
-@app.route('/pelunasan_invoice')
-
+@app.route('/pelunasan_invoice', methods=['POST', 'GET'])
 def pelunasan_invoice():
-    return render_template("pelunasan_invoice.html")
+    invoices = get_invoice_data()
+
+    if request.method == "POST":
+        data = request.form
+
+        id_invoice = [int(i) for i in data.keys()]
+        print(id_invoice)
+
+        for id in id_invoice:
+            pay_invoice(id)
+    return render_template("pelunasan_invoice.html", invoices=invoices)
 
 @app.route('/piutang_perusahaan')
 def piutang_perusahaan():
