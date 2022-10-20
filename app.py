@@ -56,15 +56,14 @@ def new_customer_form():
         return render_template('form_create_pelanggan.html')
 @app.route('/pelunasan_invoice', methods=['POST', 'GET'])
 def pelunasan_invoice():
-    invoices = get_invoice_data()
+    invoices = get_invoice_data_paid()
 
     if request.method == "POST":
-        data = request.form.getlsit('checkbox')
+        data = request.form.getlist('checkboxes')
         print("data", data)
-        id_invoice = [int(i) for i in data.keys()]
-
+        id_invoice = [int(i) for i in data]
         for id in id_invoice:
-            pay_invoice(id)
+            pay_invoice(int(id))
     return render_template("pelunasan_invoice.html", invoices=invoices)
 
 @app.route('/piutang_perusahaan')
