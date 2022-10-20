@@ -9,12 +9,27 @@
     <h1>Pelunasan Invoice</h1>
 </header>
 <body>
-<h3>No.Invoice</h3> 
-<form method="POST">
-<input type="text"><br><br>
-<input type="text" placeholder="info invoice"> 
-<button>cancel</button>   
-<button>bayar</button>   
-</form>
+    <h1>Invoice History</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tanggal</th>
+            <th>ID Pelanggan</th>
+            <th>Total</th>
+            <th>Paid?</th>
+        </tr>
+        {% for data in invoices%}
+        <tr>
+            <td >{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <form method="post">
+                <td><input type="checkbox" name='Checkbox' value=""{{ data[0] }}" ></td>
+            </form>
+        </tr>
+        {%endfor%}
+    </table>
+    <input type="submit" name="submit button">
 </body>
 </html>

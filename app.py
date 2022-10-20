@@ -1,4 +1,3 @@
-# from crypt import methods
 from flask import Flask, render_template,request,redirect,url_for,session,flash
 from database import *
 
@@ -11,7 +10,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         id= login_check(username,password)
-        if id is not False:
+        if id != False:
             position = check_position(id)
             print(f"position:{position}")
             if position == 'manager':
@@ -41,21 +40,9 @@ def main_menu_as():
 
 @app.route('/pelanggan')
 def pelanggan():
-    customers = show_customer()
-    return render_template("pelanggan.html", customers=customers)
+    return render_template("pelanggan.html")
 
-@app.route('/new_customer', methods=['POST','GET'])
-def new_customer_form():
-    if request.method =="POST":
-        name = request.form['customer_name']
-        address = request.form['address']
-        phone_numb = request.form['phone_number']
-        insert_new_customer(name,address,phone_numb)
-        return redirect(url_for('pelanggan'))
-    else:
-        return render_template('form_create_pelanggan.html')
 @app.route('/pelunasan_invoice')
-
 def pelunasan_invoice():
     return render_template("pelunasan_invoice.html")
 
@@ -97,10 +84,6 @@ def history():
     invoices = get_invoice_data()
     return render_template('invoice_history.html',invoices=invoices)
 
-@app.route('/invoice')
-def invoice_sales():
-    return render_template('invoice.html')
-
-if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
-    app.run()
+# if __name__ == "__main__":
+    # app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
+    # app.run()
