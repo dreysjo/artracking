@@ -1,3 +1,4 @@
+from os import curdir
 import pymysql
 from flask import Flask,render_template,request
 conn = pymysql.connect(
@@ -26,12 +27,15 @@ def login_check(usr_name,passwd):
     else:
         return False
 
+# login_check('jessong','12345')
+
 def check_position(id_usr):
     cur = conn.cursor()
     cur.execute(f"SELECT position FROM login WHERE ID_user= (%s) ",(id_usr,))
     position = cur.fetchall()
     conn.commit()
     return position[0][0]
+
 #UNTUK ADMIN SALES
 def get_invoice_data():
     cur= conn.cursor()
@@ -73,10 +77,32 @@ def check_status_invoice(id):
             return 'paid'
     else:
         return False
+
 def get_info_invoice(id):
     cur = conn.cursor()
     check_status = check_status_invoice(id)
     if check_status != False and check_status!= 'paid':
         cur.execute(f'SELECT ')
         pass
-app.run()
+
+
+# UNTUK MANAGER
+def show_customer():
+    cur = conn.cursor()
+    cur.execute('SELECT * from customer')
+    customer = cur.fetchall()
+    # print(customer)
+    res = []
+    for cust in range(len(customer)):
+        data = list(customer[cust])
+        res.append(data)
+    return res
+
+def insert_new_customer(name,adress,phone_numb):
+    cur = conn.cursor()
+    insert = cur.execute(f"INSERT INTO customer (cust_name, address, number) VALUES ((%s),(%s),(%s))",(name,adress,phone_numb,))
+    conn.commit()
+    return insert
+
+# show_customer()
+# app.run()
