@@ -4,17 +4,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Pelanggan baru </title>
+    <link rel="stylesheet" href="../static/css/form_create_pelanggan_css.css">
 </head>
 <body>
-    <form action="" method="POST">
-        <input required type="text"  name="customer_name" placeholder="masukkan nama" ><br><br>
-        <input required type="text"  name="address" placeholder="masukkan alamat" ><br><br>
-        <input required type="text"  name="phone_number" placeholder="masukkan no.telpon" ><br><br>
-        <select   name="status">
-            <option value="active">active</option>
-            <option value="inactive">inactive</option>
-        </select><br><br>
-        <button>Submit</button>
-    </form>
+<div class="new-customer-form flex-col-hstart-vstart clip-contents">
+    <div class="group-1012 flex-col-hcenter">
+        <div class="group-345 flex-col-hcenter">
+            <img
+                    src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/1gqfwff93ad-106%3A494?alt=media&token=ac8054b2-bef2-45db-90e1-fc90981317c4"
+                    alt="Not Found"
+                    class="logo"
+            />
+            <form action="" method="POST">
+                <div class="group-325 flex-col-hend">
+                    <div class="group-398 flex-row">
+                        <p class="txt-339 flex-hend">Name</p>
+                        <input required type="text" name="customer_name" placeholder="masukkan nama"
+                               class="rectangle-13"><br><br>
+                    </div>
+                        <div class="group-398 flex-row">
+                            <p class="txt-339 flex-hend">Address</p>
+                            <input required type="text" name="address" placeholder="masukkan alamat"
+                                   class="rectangle-13"><br><br>
+                        </div>
+                            <div class="group-799 flex-row">
+                                <p class="txt-339 flex-hend">Phone Number</p>
+                                <input required type="text" name="phone_number" placeholder="masukkan no.telpon"
+                                       class="rectangle-13"><br><br>
+                            </div>
+                            <button type="submit" class="txt-274">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

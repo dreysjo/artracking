@@ -1,38 +1,37 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title> Admin </title>
-    <style>
-        th,td{
-            border: 1px solid black ;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/admin_css.css">
 </head>
 
 <body>
-    <h1>Admin</h1>
+<div class="admin flex-col-hstart-vstart clip-contents">
+    <div class="group-544">
+        <img
+                src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/wdpwrrm7o28-6%3A517?alt=media&token=111af59a-473c-476d-8498-d61ecbce6f52"
+                alt="Not Found"
+                class="logo"
+        />
 
-    <p>search, sort by, add new</p>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nama Admin</th>
-            <th>Divisi</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>D/E</th>
-        </tr>
-        <tr>
-            <td></td> 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+        <table>
+            <tr>
+                <th class="txt-422">ID Admin</th>
+                <th class="txt-422">Username</th>
+                <th class="txt-422">Password</th>
+                <th class="txt-422">Position</th>
+            </tr>
+            {% for admin in admins %}
+            <tr>
+                <td class="txt-422">{{admin[0]}}</td>
+                <td class="txt-422">{{admin[1]}}</td>
+                <td class="txt-422">{{admin[2]}}</td>
+                <td class="txt-422">{{admin[3]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
 </body>
 
 </html>

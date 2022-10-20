@@ -1,0 +1,131 @@
+/* Mainmenusales */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+
+p {
+  margin: 0;
+}
+
+.clip-contents {
+  overflow: hidden;
+}
+
+.flex-col-hstart-vstart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-col-hcenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-hcenter {
+  justify-content: center;
+}
+
+.main-menu-sales {
+  padding: 103px 105px 98px 97px;
+  box-sizing: border-box;
+  background: linear-gradient(
+      146.39deg,
+      rgba(0, 59, 210, 0.65) 0%,
+      rgba(64, 106, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(168, 101, 209, 1), rgba(168, 101, 209, 1));
+  width: 1440px;
+  height: 1024px;
+}
+
+.group-694 {
+  padding: 16px 322px 277px 330px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.97);
+  border: 10px solid rgba(255, 255, 255, 0.97);
+  box-shadow: 0px 15px 10px rgba(0, 31, 140, 0.25);
+  height: 100%;
+}
+
+.logo {
+  width: 311px;
+  height: 58px;
+  margin-bottom: 201px;
+}
+
+.group-625 {
+  margin-bottom: 13px;
+  box-sizing: border-box;
+}
+
+.group-837 {
+  padding: 5px 5px 6px 6px;
+  margin-right: 218px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(120, 231, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(49, 79, 238, 1), rgba(49, 79, 238, 1));
+  border: 5px solid rgba(49, 79, 238, 1);
+  width: 173px;
+  height: 100%;
+}
+
+.icon-book-open-outline {
+  width: 152px;
+  height: 100%;
+}
+
+.group-422 {
+  padding: 11px 11px 12px 12px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: linear-gradient(
+      0deg,
+      rgba(228, 120, 255, 0.65) 0%,
+      rgba(120, 231, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(61, 58, 227, 1), rgba(61, 58, 227, 1));
+  border: 5px solid rgba(61, 58, 227, 1);
+  width: 173px;
+  height: 100%;
+}
+
+.icon-book {
+  width: 140px;
+  height: 100%;
+}
+
+.group-262 {
+  width: fit-content;
+}
+
+.txt-296 {
+  font-size: 26px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  word-wrap: break-word;
+  margin-right: 278px;
+}
+
+.txt-138 {
+  font-size: 26px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  word-wrap: break-word;
+}

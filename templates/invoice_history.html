@@ -4,30 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <title> Invoice History </title>
+    <link rel="stylesheet" href="../static/css/admin_css.css">
+
 </head>
 
 <body>
+<div class="admin flex-col-hstart-vstart clip-contents">
+    <div class="group-544">
+        <img
+                src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/wdpwrrm7o28-6%3A517?alt=media&token=111af59a-473c-476d-8498-d61ecbce6f52"
+                alt="Not Found"
+                class="logo"
+        />
 
-    <h1>Invoice History</h1>
-
-    <label name="invoiceid">ID</label> <input type="text"> <button>Search</button>
-    <p> sort by </p>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Tanggal</th>
-            <th>ID Pelanggan</th>
-            <th>Total</th>
-        </tr>
-        {% for data in invoices%}
-        <tr>
-            <td>{{data[0]}}</td>
-            <td>{{data[1]}}</td>
-            <td>{{data[2]}}</td>
-            <td>{{data[3]}}</td>
-        </tr>
-        {%endfor%}
-    </table>
+        <table>
+            <tr>
+                <th class="txt-422">ID Invoice</th>
+                <th class="txt-422">ID Pelanggan</th>
+                <th class="txt-422">Tanggal</th>
+                <th class="txt-422">Total</th>
+                <th class="txt-422">Status</th>
+            </tr>
+            {% for data in invoices%}
+            <tr>
+                <td class="txt-422">{{data[0]}}</td>
+                <td class="txt-422">{{data[1]}}</td>
+                <td class="txt-422">{{data[2]}}</td>
+                <td class="txt-422">{{data[3]}}</td>
+                <td class="txt-422">{{data[4]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
 
 </body>
 

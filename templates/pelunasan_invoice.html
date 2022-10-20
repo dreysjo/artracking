@@ -4,14 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pelunasan invoice</title>
+    <link rel="stylesheet" href="../static/css/pelunasan_invoice_css.css">
 </head>
-<header>
-    <h1>Pelunasan Invoice</h1>
-</header>
 <body>
-    <h1>Invoice History</h1>
-    <form method="post">
 
+<<<<<<< HEAD
     <table>
         <tr>
             <th>ID</th>
@@ -32,5 +29,41 @@
     </table>
     <input type="submit" name="submit button">
     </form>
+=======
+<form method="post">
+    <div class="pembayaran-piutang flex-col-hstart-vstart clip-contents">
+        <div class="group-353">
+            <img
+                    src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/2l9kxfc1fke-6%3A567?alt=media&token=4062d226-13a6-4ef6-8ab1-1aa18ab1134c"
+                    alt="Not Found"
+                    class="logo"
+            />
+
+            <table>
+                <tr>
+                    <th><p class="txt-0108">ID</p></th>
+                    <th><p class="txt-0108">Tanggal</p></th>
+                    <th><p class="txt-0108">ID Pelanggan</p></th>
+                    <th><p class="txt-0108">Total</p></th>
+                    <th><p class="txt-0108">Paid?</p></th>
+                </tr>
+                {% for data in invoices%}
+                <tr class="txt-0108">
+                    <td>{{data[0]}}</td>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                    <td><input type="checkbox" name='checkboxes' value="{{ data[0] }}"></td>
+                </tr>
+                {%endfor%}
+            </table>
+            <div class="group-298">
+                <button type="submit" class="txt-337">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+>>>>>>> 84c7456063379d64c948665dea58c7669e078fdb
 </body>
 </html>

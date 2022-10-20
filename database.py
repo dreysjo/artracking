@@ -39,7 +39,7 @@ def check_position(id_usr):
 #UNTUK ADMIN SALES
 def get_invoice_data():
     cur= conn.cursor()
-    cur.execute('SELECT ID_invoice, ID_customer, date ,total FROM invoice')
+    cur.execute('SELECT * FROM invoice')
     row = cur.fetchall()
     res = []
     for i in range(len(row)):
@@ -49,7 +49,7 @@ def get_invoice_data():
 
 def get_invoice_data_paid():
     cur= conn.cursor()
-    cur.execute('SELECT ID_invoice, ID_customer, date ,total FROM invoice WHERE status = "active" ')
+    cur.execute("SELECT invoice.ID_invoice, invoice.ID_customer, invoice.date, invoice.total FROM invoice INNER JOIN customer WHERE invoice.ID_customer = customer.ID_customer AND customer.status = 'active'")
     row = cur.fetchall()
     res = []
     for i in range(len(row)):
@@ -99,7 +99,7 @@ def get_info_invoice(id):
 # UNTUK MANAGER
 def show_customer():
     cur = conn.cursor()
-    cur.execute('SELECT * from customer')
+    cur.execute("SELECT ID_customer, cust_name, address, number from customer WHERE status='active'",)
     customer = cur.fetchall()
     # print(customer)
     res = []
@@ -121,10 +121,11 @@ def get_customer(id):
 
 def insert_new_customer(name,adress,phone_numb):
     cur = conn.cursor()
-    insert = cur.execute(f"INSERT INTO customer (cust_name, address, number) VALUES ((%s),(%s),(%s))",(name,adress,phone_numb,))
+    insert = cur.execute(f"INSERT INTO customer (cust_name, address, number, status) VALUES ((%s),(%s),(%s), 'active')",(name,adress,phone_numb,))
     conn.commit()
     return insert
 
+<<<<<<< HEAD
 def edit_customer(id,name,address,number,status):
     cur = conn.cursor()
     edit = cur.execute(f'UPDATE customer SET cust_name =(%s), address=(%s), number=(%s),status=(%s) WHERE ID_customer =(%s)',(name,address,number,status,id,))
@@ -142,6 +143,35 @@ def delete_customer(id):
 def show_all_invoices():
     cur = conn.cursor()
     cur.execute('SELECT * FROM invoice ORDER BY date ASC')
+=======
+def delete_customer(id):
+    cur = conn.cursor()
+    cur.execute('DELETE FROM customer WHERE ID_customer = (%s)', (id,))
+    conn.commit()
+    cur.close()
+
+def show_customer_based_on_id(id):
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM customer WHERE ID_customer = (%s)', (id,))
+    conn.commit()
+    cur.close()
+
+def edit_customer(name, address, number, id):
+    cur = conn.cursor()
+    cur.execute(f"UPDATE customer SET cust_name=%s, address=%s, number=%s WHERE ID_customer = %s", (name, address, number, id,))
+    conn.commit()
+    cur.close()
+
+def disable_customer(id):
+    cur = conn.cursor()
+    cur.execute(f"UPDATE customer SET status = 'disabled' WHERE ID_customer = (%s)", (id,))
+    conn.commit()
+    cur.close()
+
+def show_all_invoices():
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM invoice')
+>>>>>>> 84c7456063379d64c948665dea58c7669e078fdb
     invoices = cur.fetchall()
     res = []
     for invoice in range(len(invoices)):
@@ -151,11 +181,37 @@ def show_all_invoices():
 
 def pay_invoice(id):
     cur = conn.cursor()
-    cur.execute("UPDATE invoice SET status = 'paid' WHERE ID_invoice = (%s)", (id,))
+    cur.execute(f"UPDATE invoice SET status = 'paid' WHERE ID_invoice = (%s)", (id,))
     conn.commit()
     cur.close()
 
 # app.run()
+
+def show_all_invoices():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM invoice WHERE NOT status = 'cancelled'",)
+    invoices = cur.fetchall()
+    res = []
+    for invoice in range(len(invoices)):
+        data = list(invoices[invoice])
+        res.append(data)
+    return res
+
+def cancel_invoice(id):
+    cur = conn.cursor()
+    cur.execute("UPDATE invoice SET status = 'cancelled' WHERE ID_invoice = (%s)", (id,))
+    conn.commit()
+    cur.close()
+
+def get_admin():
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM login')
+    row = cur.fetchall()
+    res = []
+    for i in range(len(row)):
+        data = list(row[i])
+        res.append(data)
+    return res
 
 # show_customer()
 # delete_customer(15)

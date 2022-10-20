@@ -4,27 +4,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pelanggan</title>
-    <style>
-        th,td{
-            border: 1px solid black ;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/pelanggan.css">
+
 </head>
-<header>
-    <h1>Pelanggan</h1>
-</header>
 <body>
-    
-    <input type="text" placeholder="search for customers"><button>search</button>
-    <a href="/new_customer">Create New Customer</a>
+
+<a href="/new_customer" class="txt-0108">Create New Customer</a>
+<form method="post">
+    <div class="pembayaran-piutang flex-col-hstart-vstart clip-contents">
+        <div class="group-353">
+            <img
+                    src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/2l9kxfc1fke-6%3A567?alt=media&token=4062d226-13a6-4ef6-8ab1-1aa18ab1134c"
+                    alt="Not Found"
+                    class="logo"
+            />
     <table>
         <tr>
-            <th>ID</th>
-            <th>Nama Pelanggan</th>
-            <th>Alamat</th>
-            <th>No.telp</th>
-            <th>status</th>
-            <th>D/E</th>
+            <th class="txt-0108">ID</th>
+            <th class="txt-0108">Nama Pelanggan</th>
+            <th class="txt-0108">Alamat</th>
+            <th class="txt-0108">No.telp</th>
+            <th class="txt-0108">status</th>
+            <th class="txt-0108">D/E</th>
         </tr>
         <form action="" method="POST">
         <tr>
@@ -37,10 +38,29 @@
             <td><button type="submit" name="delete" value="{{customer[0]}}">delete</button>
                 <!-- <a href="/edit_pelanggan?id={{customer[0]}}">edit</a> </td> -->
                 <button type="submit" name='edit' value="{{customer[0]}}">edit</button></td>
+            <th class="txt-0108">ID</th>
+            <th class="txt-0108">Nama Pelanggan</th>
+            <th class="txt-0108">Alamat</th>
+            <th class="txt-0108">No.telp</th>
+            <th class="txt-0108">D/E</th>
+        </tr>
+        {%for customer in customers%}
+        <tr>
+            <td class="txt-0108">{{customer[0]}}</td>
+            <td class="txt-0108">{{customer[1]}}</td>
+            <td class="txt-0108">{{customer[2]}}</td>
+            <td class="txt-0108">{{customer[3]}}</td>
+            <td class="txt-0108">
+                <button name="delete" value="{{customer[0]}}" class="txt-337">delete</button>
+                <button name="disable" value="{{customer[0]}}" class="txt-337">disable</button>
+                <a href="{{url_for('edit', id=customer[0])}}"><button name="edit" class="txt-337">edit</button>
+                </a>
+            </td>
+
         </tr>
         {%endfor%}
-    </form>
     </table>
+</form>
 
 </body>
 </html>

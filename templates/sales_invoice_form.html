@@ -3,18 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Sales Invoice Form</title>
+    <link rel="stylesheet" href="../static/css/sales_invoice_form_css.css">
 </head>
 <body>
-  <h1>Sales Invoice Form</h1>
-  <form method="post">
-   <label >Date</label>
-    <input type="date" value="{{request.form['date']}}" name="date"></input> <br> <br>
-    <label>ID Customer</label>
-    <input type="text" placeholder="ID Customer" name="idcustomer"> <br> <br>
-    <label >Total</label>
-    <input type="number" placeholder="Total" value="{{request.form['total']}}" name="total">  <br> <br>
+<form method="post">
+    <div class="sales-invoice-form flex-col-hstart-vstart clip-contents">
+        <div class="group-473">
+            <div class="flex-col-hcenter">
+                <img
+                        src="https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/9lzxdiloa2d-6%3A540?alt=media&token=a01b139f-7b8f-4dc6-a822-b2f353980678"
+                        alt="Not Found"
+                        class="logo"
+                />
+                <div class="group-6110 flex-col">
+                    <div class="group-260 flex-col">
+                        <div class="group-876 flex-row">
+                            <p class="txt-780">Date</p><br>
+                        </div>
+                        <input type="date" value="{{request.form['date']}}" name="date" class="rectangle-9" placeholder="date"></input>
+                        <br> <br>
+                        <div class="group-876 flex-row">
+                            <p class="txt-790">Customer ID</p><br>
+                        </div>
+                        <input type="text" placeholder="ID Customer" name="idcustomer" class="rectangle-9"> <br> <br>
 
-    <button type="submit">Submit</button>
-  </form>
+                        <div class="group-876 flex-row">
+                            <p class="txt-569">Total</p><br>
+                        </div>
+                        <input type="number" placeholder="Total" value="{{request.form['total']}}" name="total"
+                               class="rectangle-9"> <br>
+                        <br>
+                        <div class="group-298">
+                            <button type="submit" class="txt-337">Submit</button>
+                        </div>
+</form>
 </body>
 </html>
