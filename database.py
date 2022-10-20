@@ -99,7 +99,7 @@ def get_info_invoice(id):
 # UNTUK MANAGER
 def show_customer():
     cur = conn.cursor()
-    cur.execute('SELECT * from customer')
+    cur.execute("SELECT ID_customer, cust_name, address, number from customer WHERE status='active'",)
     customer = cur.fetchall()
     # print(customer)
     res = []
@@ -110,9 +110,27 @@ def show_customer():
 
 def insert_new_customer(name,adress,phone_numb):
     cur = conn.cursor()
-    insert = cur.execute(f"INSERT INTO customer (cust_name, address, number) VALUES ((%s),(%s),(%s))",(name,adress,phone_numb,))
+    insert = cur.execute(f"INSERT INTO customer (cust_name, address, number, status) VALUES ((%s),(%s),(%s), 'active')",(name,adress,phone_numb,))
     conn.commit()
     return insert
+
+def delete_customer(id):
+    cur = conn.cursor()
+    cur.execute('DELETE FROM customer WHERE ID_customer = (%s)', (id,))
+    conn.commit()
+    cur.close()
+
+def show_customer_based_on_id(id):
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM customer WHERE ID_customer = (%s)', (id,))
+    conn.commit()
+    cur.close()
+
+def edit_customer(name, address, number, id):
+    cur = conn.cursor()
+    cur.execute(f"UPDATE customer SET cust_name=%s, address=%s, number=%s WHERE ID_customer = %s", (name, address, number, id,))
+    conn.commit()
+    cur.close()
 
 def show_all_invoices():
     cur = conn.cursor()
