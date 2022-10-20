@@ -5,34 +5,42 @@
     <meta charset="UTF-8">
     <title> Invoice </title>
     <style>
-        th,td{
-            border: 1px solid black ;
+        th, td {
+            border: 1px solid black;
         }
     </style>
 </head>
 
 <body>
-    <h1>Invoice</h1>
+<h1>Invoice</h1>
 
-    <p>search, sort by</p>
-    <table>
-        <tr>
-            <th>ID Pelanggan</th>
-            <th>Tanggal</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Aksi</th>
-        </tr>
+<!--    <p>search, sort by</p>-->
+<form method="post">
+<table>
+    <tr>
+        <th>ID Pelanggan</th>
+        <th>Tanggal</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Aksi</th>
+    </tr>
         {% for data in invoices%}
+
         <tr>
-            <td>{{data[0]}}</td> 
-            <td>{{data[1]}}</td> 
-            <td>{{data[2]}}</td> 
-            <td>{{data[3]}}</td> 
-            <td><button>EDIT</button></td> 
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td><input type="checkbox" name='cancels' value="{{ data[0] }}" ></td>
+            </td>
         </tr>
+
         {%endfor%}
-    </table>
+</table>
+        <input type="submit" name="cancel">
+
+</form>
+
 </body>
 
 </html>
