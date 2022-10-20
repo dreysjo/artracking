@@ -9,9 +9,9 @@
     <h1>Pelanggan</h1>
 </header>
 <body>
-    
-    <a href="/new_customer">Create New Customer</a>
-    <form method="post">
+
+<a href="/new_customer">Create New Customer</a>
+<form method="post">
     <table>
         <tr>
             <th>ID</th>
@@ -26,13 +26,17 @@
             <td>{{customer[1]}}</td>
             <td>{{customer[2]}}</td>
             <td>{{customer[3]}}</td>
-            <td><button name="delete" value="{{customer[0]}}">delete</button>
-                <button name="edit"><a href="{{url_for('edit', id=customer[0])}}"></button>
-</a></td>
+            <td>
+                <button name="delete" value="{{customer[0]}}">delete</button>
+                <button name="disable" value="{{customer[0]}}">disable</button>
+                <a href="{{url_for('edit', id=customer[0])}}"><button name="edit">edit</button>
+                </a>
+            </td>
+
         </tr>
         {%endfor%}
     </table>
-    </form>
+</form>
 
 </body>
 </html>

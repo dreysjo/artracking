@@ -47,11 +47,13 @@ def main_menu_as():
 @app.route('/pelanggan', methods=['POST', 'GET'])
 def pelanggan():
     customers = show_customer()
+    delete = request.form.get('delete')
+    disable = request.form.get('disable')
     if request.method == "POST":
-        if len(request.form['delete']) != 0:
-            delete_customer(int(request.form['delete']))
-        # elif len(request.form['edit']) != 0:
-        #     print(request.form['edit'])
+        if delete is not None:
+            delete_customer(int(delete))
+        elif disable is not None:
+            disable_customer(int(disable))
         else:
             pass
 

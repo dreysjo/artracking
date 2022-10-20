@@ -132,6 +132,12 @@ def edit_customer(name, address, number, id):
     conn.commit()
     cur.close()
 
+def disable_customer(id):
+    cur = conn.cursor()
+    cur.execute(f"UPDATE customer SET status = 'disabled' WHERE ID_customer = (%s)", (id,))
+    conn.commit()
+    cur.close()
+
 def show_all_invoices():
     cur = conn.cursor()
     cur.execute('SELECT * FROM invoice')
@@ -144,7 +150,7 @@ def show_all_invoices():
 
 def pay_invoice(id):
     cur = conn.cursor()
-    cur.execute("UPDATE invoice SET status = 'paid' WHERE ID_invoice = (%s)", (id,))
+    cur.execute(f"UPDATE invoice SET status = 'paid' WHERE ID_invoice = (%s)", (id,))
     conn.commit()
     cur.close()
 
