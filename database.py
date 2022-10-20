@@ -49,7 +49,7 @@ def get_invoice_data():
 
 def get_invoice_data_paid():
     cur= conn.cursor()
-    cur.execute('SELECT ID_invoice, ID_customer, date ,total FROM invoice WHERE status = "active" ')
+    cur.execute("SELECT invoice.ID_invoice, invoice.ID_customer, invoice.date, invoice.total FROM invoice INNER JOIN customer WHERE invoice.ID_customer = customer.ID_customer AND customer.status = 'active'")
     row = cur.fetchall()
     res = []
     for i in range(len(row)):
