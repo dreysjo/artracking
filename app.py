@@ -68,7 +68,8 @@ def pelunasan_invoice():
 
 @app.route('/piutang_perusahaan')
 def piutang_perusahaan():
-    return render_template("piutang_perusahaan.html")
+    invoices = show_all_invoices()
+    return render_template("piutang_perusahaan.html", invoices = invoices)
 
 # @app.route('/sales_invoice_form')
 # def sales_invoice_form():
@@ -104,10 +105,17 @@ def history():
     invoices = get_invoice_data()
     return render_template('invoice_history.html',invoices=invoices)
 
-@app.route('/invoice')
+@app.route('/invoice', methods=['POST', 'GET'])
 def invoice_sales():
-    return render_template('invoice.html')
+    invoices = show_all_invoices()
+    if request.method == "POST":
+        data = request.form.getlist('cancels')
+        print("data", data)
+        id_invoice = [int(i) for i in data]
+        for id in id_invoice:
+            cancel_invoice(int(id))
+    return render_template('invoice.html', invoices=invoices)
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
+    # app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
     app.run()

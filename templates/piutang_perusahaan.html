@@ -23,10 +23,12 @@
             <th>Total</th>
         </tr>
         <tr>
-            <td></td> 
-            <td></td>
-            <td></td>
+            {%for invoice in invoices%}
+            <td>{{invoice[0]}}</td> 
+            <td>{{invoice[1]}}</td> 
+            <td>{{invoice[2]}}</td> 
         </tr>
+            {%endfor%}
     </table>
 </body>
 
