@@ -1,4 +1,4 @@
-/* Salesinvoiceform */
+/* Newcustomerform */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
@@ -23,9 +23,10 @@ p {
   align-items: center;
 }
 
-.flex-col {
+.flex-col-hend {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 }
 
 .flex-row {
@@ -33,7 +34,11 @@ p {
   flex-direction: row;
 }
 
-.sales-invoice-form {
+.flex-hend {
+  justify-content: flex-end;
+}
+
+.new-customer-form {
   padding: 101px 101px 100px 101px;
   box-sizing: border-box;
   background: linear-gradient(
@@ -46,13 +51,19 @@ p {
   height: 1024px;
 }
 
-.group-473 {
-  border-radius: 30px;
-  background-color: rgba(255, 255, 255, 0.97);
-  border: 10px solid rgba(255, 255, 255, 0.97);
+.group-1012 {
+  padding: 120px 377px 189px 376px;
   box-sizing: border-box;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 10px solid rgba(255, 255, 255, 0.97);
   box-shadow: 0px 15px 10px rgba(0, 31, 140, 0.25);
   width: 100%;
+  height: 100%;
+}
+
+.group-345 {
+  width: fit-content;
   height: 100%;
 }
 
@@ -62,73 +73,57 @@ p {
   margin-bottom: 100px;
 }
 
-.group-6110 {
-  margin-bottom: 78px;
+.group-325 {
+  margin-bottom: 86px;
   box-sizing: border-box;
   width: 100%;
-  align-content: center;
-  margin-left: 970px;
 }
 
-.group-260 {
-  width: 100%;
-  height: 100%;
-}
-
-.group-876 {
+.group-398 {
+  margin-bottom: 35px;
+  box-sizing: border-box;
   width: fit-content;
 }
 
-.txt-569 {
+.txt-339 {
   font-size: 26px;
   font-family: Inter, sans-serif;
   font-weight: 600;
   color: rgba(0, 0, 0, 1);
+  text-align: right;
   word-wrap: break-word;
-  margin-right: 29px;
-  margin-left: 100px;
+  margin-right: 20px;
 }
 
-.rectangle-12 {
-  background-color: rgba(242, 249, 255, 1);
-  border: 3px solid rgba(154, 192, 229, 1);
-  width: 257px;
-  height: 100%;
-}
-
-.group-876 {
-  width: fit-content;
-  align-content: center;
-}
-
-.txt-780{
-  font-size: 26px;
-  font-family: Inter, sans-serif;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 1);
-  word-wrap: break-word;
-  margin-right: 16px;
-  margin-left: 95px;
-}
-
-.txt-790{
-  font-size: 26px;
-  font-family: Inter, sans-serif;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 1);
-  word-wrap: break-word;
-  margin-right: 16px;
-  margin-left: 50px;
-}
-
-.rectangle-9 {
+.rectangle-13 {
   background-color: rgba(242, 249, 255, 1);
   border: 3px solid rgba(154, 192, 229, 1);
   width: 255px;
   height: 100%;
 }
 
-.group-298 {
+.group-799 {
+  width: 100%;
+}
+
+.txt-339 {
+  font-size: 26px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  text-align: right;
+  word-wrap: break-word;
+  margin-right: 20px;
+}
+
+.rectangle-13 {
+  background-color: rgba(242, 249, 255, 1);
+  border: 3px solid rgba(154, 192, 229, 1);
+  width: 255px;
+  height: 35px;
+}
+
+.group-331 {
   padding: 8px 28px 7px 29px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -137,10 +132,10 @@ p {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 57px;
   width: fit-content;
-  margin-left: 90px;
+    margin-left: 0px;
 }
 
-.txt-337 {
+.txt-274 {
   font-size: 26px;
   font-family: Inter, sans-serif;
   font-weight: 600;
@@ -148,15 +143,13 @@ p {
   word-wrap: break-word;
 }
 
-.rectangle-9 {
-  background-color: rgba(242, 249, 255, 1);
-  border: 3px solid rgba(154, 192, 229, 1);
-  width: 255px;
-  height: 43px;
-}
 button {
   background-color: rgba(54, 103, 211, 1);
   border-color: rgba(54, 103, 211, 1);
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+    margin-top: 20px;
+    margin-right: 100px;
 }
 
 ::placeholder {
