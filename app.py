@@ -76,7 +76,8 @@ def pelunasan_invoice():
 
 @app.route('/piutang_perusahaan')
 def piutang_perusahaan():
-    return render_template("piutang_perusahaan.html")
+    invoices = show_all_invoices()
+    return render_template("piutang_perusahaan.html", invoices=invoices)
 
 # @app.route('/sales_invoice_form')
 # def sales_invoice_form():
@@ -142,5 +143,5 @@ def edit(id):
     return render_template('edit.html', customers=customers)
 
 if __name__ == "__main__":
-    app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
+    app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
     # app.run()
