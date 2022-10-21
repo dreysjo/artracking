@@ -142,5 +142,5 @@ def edit(id):
     return render_template('edit.html', customers=customers)
 
 if __name__ == "__main__":
-    # app.run(host='127.0.0.1', port=5000, debug=True, threaded=False)
-    app.run()
+    app.run(host='10.252.248.85', port=5000, debug=True, threaded=False)
+    # app.run()

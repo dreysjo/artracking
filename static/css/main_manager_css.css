@@ -2,6 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
+*{
+  margin: 0;
+  padding:0;
+}
 p {
   margin: 0;
 }
@@ -202,4 +206,8 @@ p {
   color: rgba(0, 0, 0, 1);
   text-align: center;
   word-wrap: break-word;
+}
+
+@media(max-width:1000px){
+  
 }

@@ -2,32 +2,44 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
+*{
+  margin: 0;
+  padding:0;
+}
 p {
   margin: 0;
 }
-
+a {
+  text-decoration: none;
+}
+button > a {
+  color: white;
+}
 .clip-contents {
   overflow: hidden;
 }
-
+/* 
 .flex-col-hstart-vstart {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.pembayaran-piutang {
-  padding: 101px 101px 100px 101px;
-  box-sizing: border-box;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  /* align-items: flex-start; */
+/* }  */
+body {
   background: linear-gradient(
-      146.39deg,
-      rgba(0, 59, 210, 0.65) 0%,
-      rgba(64, 106, 255, 0) 100%
-    ),
-    linear-gradient(0deg, rgba(168, 101, 209, 1), rgba(168, 101, 209, 1));
-  width: 1440px;
-  height: 1024px;
+    146.39deg,
+    rgba(0, 59, 210, 0.65) 0%,
+    rgba(64, 106, 255, 0) 100%
+  ),
+  linear-gradient(0deg, rgba(168, 101, 209, 1), rgba(168, 101, 209, 1));
+  background-size: cover;
+}
+.pembayaran-piutang {
+  box-sizing: border-box;
+  padding: 3rem;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 
 .group-353 {
@@ -36,16 +48,21 @@ p {
   border: 10px solid rgba(255, 255, 255, 0.97);
   box-sizing: border-box;
   box-shadow: 0px 15px 10px rgba(0, 31, 140, 0.25);
-  width: 100%;
+  max-width: 100vw;
   height: 100%;
-  padding: 100px 100px 100px 50px;
+  padding: 20px;
+  border-collapse: 0;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 .logo {
+  display: block;
   width: 311px;
   height: 58px;
-  margin-left: 450px;
-  /*margin-top: 50px;*/
+  margin: 20px auto;
 }
 
 .txt-0108 {
@@ -73,7 +90,9 @@ button {
   font-weight: 600;
   color: rgba(242, 249, 255, 1);
   word-wrap: break-word;
-  margin-left: 550px;
+  display: block;
+  width: 49%;
+  /* margin-left: 550px; */
 }
 
 td {
@@ -87,14 +106,16 @@ td {
 }
 
 table {
-  margin-left: 300px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  width: 100%;
+  margin: 20px 0;}
+.group-298{
+  display: flex;
+  justify-content: space-between;
 }
 
- th, td {
+ /* th, td {
   border: 3px solid black;
-}
+} */
 input[type=checkbox] {
     transform: scale(1.5);
 }
