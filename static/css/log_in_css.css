@@ -43,7 +43,7 @@ p {
     padding: 9px;
     box-sizing: border-box;
     width: 1138px;
-    height: 788px;
+    height: 588px;
 }
 
 .rectangle-1 {
@@ -57,8 +57,8 @@ p {
 
 .txt-265 {
     position: absolute;
-    top: 200px;
-    left: 580px;
+    top: 110px;
+    left: 630px;
     font-size: 48px;
     font-family: Inder, sans-serif;
     font-weight: 400;
@@ -70,8 +70,8 @@ p {
 
 .line-1 {
     position: absolute;
-    top: 280px;
-    left: 250px;
+    top: 200px;
+    left: 300px;
     border: 3px solid rgba(58, 59, 123, 1);
     width: 926px;
     height: 3px;
