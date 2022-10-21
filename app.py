@@ -1,5 +1,5 @@
 # from crypt import methods
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template,request,redirect,url_for,session,flash
 from database import *
 
 app = Flask(__name__)
@@ -43,20 +43,9 @@ def main_menu_af():
 def main_menu_as():
     return render_template("main_menu_as.html")
 
-
-@app.route('/pelanggan', methods=['POST', 'GET'])
+@app.route('/pelanggan')
 def pelanggan():
     customers = show_customer()
-    delete = request.form.get('delete')
-    disable = request.form.get('disable')
-    if request.method == "POST":
-        if delete is not None:
-            delete_customer(int(delete))
-        elif disable is not None:
-            disable_customer(int(disable))
-        else:
-            pass
-
     return render_template("pelanggan.html", customers=customers)
 
 
@@ -87,9 +76,7 @@ def pelunasan_invoice():
 
 @app.route('/piutang_perusahaan')
 def piutang_perusahaan():
-    invoices = show_all_invoices()
-    return render_template("piutang_perusahaan.html", invoices=invoices)
-
+    return render_template("piutang_perusahaan.html")
 
 # @app.route('/sales_invoice_form')
 # def sales_invoice_form():
