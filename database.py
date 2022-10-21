@@ -191,6 +191,17 @@ def show_all_invoices():
         res.append(data)
     return res
 
+def show_invoice_based_on_customer():
+    cur = conn.cursor()
+    cur.execute("SELECT ID_customer, cust_name FROM customer")
+    customers=cur.fetchall()
+    res = []
+    for customer in range(len(customers)):
+        data = list(customers[customer])
+        res.append(data)
+
+    return res
+
 def cancel_invoice(id):
     cur = conn.cursor()
     cur.execute("UPDATE invoice SET status = 'cancelled' WHERE ID_invoice = (%s)", (id,))
