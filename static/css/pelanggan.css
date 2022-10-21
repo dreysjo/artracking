@@ -13,15 +13,16 @@ p {
   overflow: hidden;
 }
 
-/* .flex-col-hstart-vstart {
+.flex-col-hstart-vstart {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-} */
+  justify-content: center;
+  align-items: center;
+}
 
 .pembayaran-piutang {
-  padding: 101px 101px 100px 101px;
+  /* padding: 101px 101px 100px 101px; */
+  padding: 50px;
   box-sizing: border-box;
   background: linear-gradient(
       146.39deg,
@@ -29,8 +30,8 @@ p {
       rgba(64, 106, 255, 0) 100%
     ),
     linear-gradient(0deg, rgba(168, 101, 209, 1), rgba(168, 101, 209, 1));
-  width: 1440px;
-  height: 1024px;
+  width: 100%;
+  height: 100%;
 }
 
 .group-353 {
@@ -41,11 +42,12 @@ p {
   box-shadow: 0px 15px 10px rgba(0, 31, 140, 0.25);
   width: 100%;
   height: 100%;
-  padding: 100px 100px 100px 50px;
+  padding: 3px;
+  /* padding: 100px 100px 100px 50px; */
 }
 
 .logo {
-  width: 311px;
+  width: 300px;
   height: 58px;
   margin-left: 450px;
   /*margin-top: 50px;*/
@@ -53,12 +55,12 @@ p {
 
 .txt-0108 {
   /* display: block; */
-  font-size: 26px;
+  font-size: 20px;
   font-family: Inter, sans-serif;
   font-weight: 600;
   color: rgba(0, 0, 0, 1);
-  word-wrap: break-word;
-  padding: 10px;
+  word-wrap: normal;
+  /* padding: 10px; */
 }
 
 button {
@@ -72,7 +74,7 @@ button {
   text-align: center;
 }
 .txt-337 {
-  font-size: 22px;
+  font-size: 19px;
   font-family: Inter, sans-serif;
   font-weight: 600;
   color: rgba(242, 249, 255, 1);
@@ -81,7 +83,82 @@ button {
 }
 
 td {
-  font-size: 22px;
+  font-size: 19px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: black;
+  word-wrap: break-word;
+  text-align: center;
+  /* padding: 5px; */
+}
+
+table {
+  margin-left: 90px;
+  /* margin-top: 50px; */
+  margin-bottom: 50px;
+  height: fit-content;
+}
+
+ th, td {
+  border: 2px solid black;
+  height: 20%;
+}
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+@media(max-width:1024){
+  .flex-col-hstart-vstart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .pembayaran-piutang {
+    padding: 50px;
+    box-sizing: border-box;
+    background: linear-gradient(
+        146.39deg,
+        rgba(0, 59, 210, 0.65) 0%,
+        rgba(64, 106, 255, 0) 100%
+      ),
+      linear-gradient(0deg, rgba(168, 101, 209, 1), rgba(168, 101, 209, 1));
+    width: 100%;
+    height: 70%;
+  }
+  .group-353 {
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 10px solid rgba(255, 255, 255, 0.97);
+    box-sizing: border-box;
+    box-shadow: 0px 15px 10px rgba(0, 31, 140, 0.25);
+    width: 100%;
+    height: 100%;
+    /* padding: 100px 100px 100px 50px; */
+    padding: 3px;
+  }
+  table {
+    margin-left: 10px;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    height: fit-content;
+    
+  }
+  .txt-0108 {
+    /* display: block; */
+    font-size: 10px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    word-wrap: break-word;
+    /* padding: 10px; */
+  }
+  th, td {
+    border: 2px solid black;
+    height: 20%;
+  }
+  td {
+  font-size: 19px;
   font-family: Inter, sans-serif;
   font-weight: 600;
   color: black;
@@ -89,17 +166,10 @@ td {
   text-align: center;
   padding: 5px;
 }
-
-table {
-  margin-left: 90px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+button {
+  background-color: rgba(54, 103, 211, 1);
+  border-color: rgba(54, 103, 211, 1);
+  border-radius: 10px;
+  padding: 10px;
 }
-
- th, td {
-  border: 3px solid black;
 }
-input[type=checkbox] {
-    transform: scale(1.5);
-}
-
