@@ -25,7 +25,12 @@
                         <div class="group-876 flex-row">
                             <p class="txt-790">Customer ID</p><br>
                         </div>
-                        <input type="text" placeholder="ID Customer" name="idcustomer" class="rectangle-9"> <br> <br>
+                        <select placeholder="ID Customer" name=""idcustomer class="rectangle-9">
+                            <!--<option value=1>1</option>-->
+                            {%for i in customers%}
+                            <option value="{{i[0]}}">{{i[0]}} {{i[1]}}</option>
+                            {%endfor%}
+                             </select> <br>
 
                         <div class="group-876 flex-row">
                             <p class="txt-569">Total</p><br>

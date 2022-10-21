@@ -85,7 +85,7 @@ def piutang_perusahaan():
 
 @app.route('/sales_invoice_form', methods=['POST', 'GET'])
 def invoice():
-    # invoices = [[1,'20-12-22','4','6.000.000'],[2,'21-12-22','5','7.000.000'],[3,'22-12-22','6','8.000.000']]
+    customers =show_invoice_based_on_customer()
     if request.method == "POST":
         date = request.form.get("date")
         id_customer = request.form.get("idcustomer")
@@ -102,7 +102,7 @@ def invoice():
             insert_transaction(date, id_customer, total)
             # return redirect(url_for('index'))
 
-    return render_template("sales_invoice_form.html")
+    return render_template("sales_invoice_form.html", customers=customers)
 
 
 @app.route('/admin')

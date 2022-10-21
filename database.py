@@ -149,9 +149,23 @@ def disable_customer(id):
     conn.commit()
     cur.close()
 
+def edit_customer(id,name,address,number,status):
+    cur = conn.cursor()
+    edit = cur.execute(f'UPDATE customer SET cust_name =(%s), address=(%s), number=(%s),status=(%s) WHERE ID_customer =(%s)',(name,address,number,status,id,))
+    print(edit)
+    conn.commit()
+    print(edit)
+    return edit
+
+def delete_customer(id):
+    cur = conn.cursor()
+    delete = cur.execute(f"DELETE from customer WHERE ID_customer = (%s)",(id))
+    conn.commit()
+    return delete
+
 def show_all_invoices():
     cur = conn.cursor()
-    cur.execute('SELECT * FROM invoice')
+    cur.execute('SELECT * FROM invoice ORDER BY date ASC')
     invoices = cur.fetchall()
     res = []
     for invoice in range(len(invoices)):
@@ -175,6 +189,17 @@ def show_all_invoices():
     for invoice in range(len(invoices)):
         data = list(invoices[invoice])
         res.append(data)
+    return res
+
+def show_invoice_based_on_customer():
+    cur = conn.cursor()
+    cur.execute("SELECT ID_customer, cust_name FROM customer")
+    customers=cur.fetchall()
+    res = []
+    for customer in range(len(customers)):
+        data = list(customers[customer])
+        res.append(data)
+
     return res
 
 def cancel_invoice(id):
