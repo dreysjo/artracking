@@ -1,4 +1,4 @@
-from os import curdir
+# from os import curdir
 import pymysql
 from flask import Flask,render_template,request
 conn = pymysql.connect(
@@ -108,6 +108,17 @@ def show_customer():
         res.append(data)
     return res
 
+def get_customer(id):
+     cur = conn.cursor()
+     cur.execute(f'SELECT * from customer WHERE ID_customer=(%s)',(id))
+     row = cur.fetchall()
+     res = []
+     for i in range (len(row)):
+        data = list(row[i])
+        res.append(data)
+        print(res)
+     return res
+
 def insert_new_customer(name,adress,phone_numb):
     cur = conn.cursor()
     insert = cur.execute(f"INSERT INTO customer (cust_name, address, number, status) VALUES ((%s),(%s),(%s), 'active')",(name,adress,phone_numb,))
@@ -138,9 +149,23 @@ def disable_customer(id):
     conn.commit()
     cur.close()
 
+def edit_customer(id,name,address,number,status):
+    cur = conn.cursor()
+    edit = cur.execute(f'UPDATE customer SET cust_name =(%s), address=(%s), number=(%s),status=(%s) WHERE ID_customer =(%s)',(name,address,number,status,id,))
+    print(edit)
+    conn.commit()
+    print(edit)
+    return edit
+
+def delete_customer(id):
+    cur = conn.cursor()
+    delete = cur.execute(f"DELETE from customer WHERE ID_customer = (%s)",(id))
+    conn.commit()
+    return delete
+
 def show_all_invoices():
     cur = conn.cursor()
-    cur.execute('SELECT * FROM invoice')
+    cur.execute('SELECT * FROM invoice ORDER BY date ASC')
     invoices = cur.fetchall()
     res = []
     for invoice in range(len(invoices)):
@@ -154,7 +179,7 @@ def pay_invoice(id):
     conn.commit()
     cur.close()
 
-app.run()
+# app.run()
 
 def show_all_invoices():
     cur = conn.cursor()
@@ -183,4 +208,6 @@ def get_admin():
     return res
 
 # show_customer()
+# delete_customer(15)
+# get_customer(16)
 # app.run()

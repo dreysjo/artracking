@@ -1,7 +1,10 @@
 /* Pembayaranpiutang */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
-
+*{
+  margin:0;
+  padding:0;
+}
 p {
   margin: 0;
 }
@@ -10,12 +13,12 @@ p {
   overflow: hidden;
 }
 
-.flex-col-hstart-vstart {
+/* .flex-col-hstart-vstart {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-}
+} */
 
 .pembayaran-piutang {
   padding: 101px 101px 100px 101px;
@@ -49,6 +52,7 @@ p {
 }
 
 .txt-0108 {
+  /* display: block; */
   font-size: 26px;
   font-family: Inter, sans-serif;
   font-weight: 600;
@@ -98,3 +102,4 @@ table {
 input[type=checkbox] {
     transform: scale(1.5);
 }
+

@@ -28,6 +28,7 @@ p {
     linear-gradient(0deg, rgba(168, 101, 209, 1), rgba(168, 101, 209, 1));
   width: 1440px;
   height: 1024px;
+
 }
 
 .frame-2 {
@@ -38,6 +39,7 @@ p {
   box-sizing: border-box;
   width: 1138px;
   height: 788px;
+
 }
 
 .rectangle-1 {
@@ -51,8 +53,8 @@ p {
 
 .txt-265 {
   position: absolute;
-  top: 75px;
-  left: 430px;
+  top: 200px;
+  left: 580px;
   font-size: 48px;
   font-family: Inder, sans-serif;
   font-weight: 400;
@@ -64,8 +66,8 @@ p {
 
 .line-1 {
   position: absolute;
-  top: 150px;
-  left: 100px;
+  top: 280px;
+  left: 250px;
   border: 3px solid rgba(58, 59, 123, 1);
   width: 926px;
   height: 3px;
@@ -126,7 +128,7 @@ p {
 .group-392 {
   position: absolute;
   top: 400px;
-  left:330px;
+  left:345px;
   /*none: 0px;*/
   padding: 6px 119px 6px 119px;
   box-sizing: border-box;
